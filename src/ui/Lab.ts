@@ -42,8 +42,8 @@ export const renderLab = (root: HTMLElement, content: AssessmentContent): void =
     </section>
 
     <section id="goals" class="lab-section">
-      ${sectionTitle('02', 'Goal profiles', 'Each sport contributes these desired capacity levels. The client sliders determine how strongly each sport contributes.')}
-      <div class="question-table">${content.ontology.sports.map(sport => `<article class="lab-question"><div class="q-number">${sport.id.slice(0, 2).toUpperCase()}</div><div class="q-body"><h3>${sport.name}</h3><aside>${evidenceTags(sport.targets, capacities)}</aside></div></article>`).join('')}</div>
+      ${sectionTitle('02', 'Goal profiles', 'Each domain contributes desired capacity levels. The client sliders determine how strongly each domain contributes.')}
+      <div class="question-table">${content.ontology.domains.map(domain => `<article class="lab-question"><div class="q-number">${domain.id.slice(0, 2).toUpperCase()}</div><div class="q-body"><h3>${domain.name}</h3><aside>${evidenceTags(domain.targets, capacities)}</aside></div></article>`).join('')}</div>
     </section>
 
     <section id="questions" class="lab-section">

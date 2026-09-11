@@ -33,7 +33,7 @@ const build = async (): Promise<void> => {
   });
   if (!result.success) throw new AggregateError(result.logs, 'Build failed');
 
-  for (const path of ['manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png'])
+  for (const path of ['manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'miami-beach-labs.svg'])
     await Bun.write(`dist/${path}`, Bun.file(path));
 
   const files = await Array.fromAsync(new Bun.Glob('dist/**/*').scan());
@@ -44,7 +44,7 @@ const build = async (): Promise<void> => {
     .replace('__BUILD__', version);
   await Bun.write('dist/service-worker.js', worker);
 
-  console.log(`Built AI Fitness ${content.ontology.version} from YAML (${version}).`);
+  console.log(`Built AI Fitness from YAML (${version}).`);
 };
 
 if (import.meta.main) await build();

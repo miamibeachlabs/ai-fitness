@@ -4,23 +4,35 @@ app:
   privacy: 11 behavioral questions · No login · Works offline
   principles:
     - AI fitness comes from doing, not knowing.
-    - Your ideal profile depends on your sport.
+    - Your ideal profile depends on what you want to do.
     - The goal is a training direction, not a grade.
 
 goals:
-  category: Your direction
-  prompt: What do you want AI fitness for?
-  hint: Rate every area. This shapes the profile you need—it does not raise your score.
+  category: Your goals
+  prompt: How important will AI be to you in each of these areas?
+  hint: Rate every area. Your answers shape the profile you need; they do not raise your score.
   levels: [Not relevant, Curious, Useful, Important, Central]
 
 results:
   heading: Your AI fitness profile
-  coachRead: Coach's read
+  trainingRead: Training read
   strongest: Strongest asset
   opportunity: Best opportunity
-  map: Your training map
-  nextSession: Next session
-  trainingHeadline: Train the gap, not the score.
-  trainingBody: A personal session turns those abstractions into exercises drawn from your actual work.
+  capacityChart: Base capacities
+  compoundChart: Compound capacities
+  prioritiesHeading: Training priorities
+  prioritiesPrompt: What you want AI fitness for
+  generalFitness: General fitness
+  lowestCapacity: Lowest capacity
+  goalAdjustedGaps: Goal-adjusted gaps
+  primaryPriorities: Primary priorities
+  trainingDirection: Training direction
+  capacityDirection: General capacity training
+  domainDirection: Domain-specific practice
   copy: Copy AI Fitness Profile
-  copied: Full profile copied
+  copyData: Copy profile data
+  copied: Profile copied
+  dataCopied: Profile data copied
+  none: None
+  notSpecified: Not specified
+  targetsMet: General targets met

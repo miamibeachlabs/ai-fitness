@@ -7,8 +7,8 @@ export type Answers = Readonly<{
 export type Score = Readonly<{ id: Identifier; score: number }>;
 export type Opportunity = Readonly<{ id: Identifier; score: number; target: number; gap: number }>;
 export type Assessment = Readonly<{
-  version: string; assessedAt: string; capacities: readonly Score[]; compounds: readonly Score[];
-  context: readonly Score[]; goals: Readonly<Record<Identifier, number>>; targets: readonly Score[];
+  assessedAt: string; capacities: readonly Score[]; compounds: readonly Score[];
+  context: readonly Score[]; goals: Readonly<Record<Identifier, number>>; targets: readonly Score[]; compoundTargets: readonly Score[];
   personaId: Identifier; profileId: Identifier; strongest: Score; opportunities: readonly Opportunity[];
 }>;
 
@@ -22,11 +22,17 @@ const scoreEvidence = (ids: readonly Identifier[], evidence: readonly Evidence[]
 const byId = (scores: readonly Score[]): Readonly<Record<Identifier, number>> =>
   Object.fromEntries(scores.map(({ id, score }) => [id, score]));
 
+const compoundProfile = (content: AssessmentContent, capacityScores: Readonly<Record<Identifier, number>>): readonly Score[] =>
+  content.ontology.compounds.map(compound => ({
+    id: compound.id,
+    score: percentage(mean(compound.capacities.map(id => capacityScores[id]))),
+  }));
+
 const targetProfile = (content: AssessmentContent, goals: Answers['goals']): readonly Score[] =>
   content.ontology.capacities.map(capacity => {
-    const weighted = content.ontology.sports.flatMap(sport => {
-      const relevance = goals[sport.id] ?? 0;
-      return relevance === 0 ? [] : [{ relevance, target: (sport.targets[capacity.id] ?? 2) * 25 }];
+    const weighted = content.ontology.domains.flatMap(domain => {
+      const relevance = goals[domain.id] ?? 0;
+      return relevance === 0 ? [] : [{ relevance, target: (domain.targets[capacity.id] ?? 2) * 25 }];
     });
     const score = weighted.length
       ? weighted.reduce((sum, item) => sum + item.relevance * item.target, 0) /
@@ -66,7 +72,8 @@ export const assess = (content: AssessmentContent, answers: Answers): Assessment
   const opportunities = capacities.map(({ id, score }) => ({ id, score, target: targetScores[id], gap: targetScores[id] - score }))
     .filter(({ gap }) => gap > 5).sort((left, right) => right.gap - left.gap).slice(0, 3);
   const strongest = capacities.reduce((best, score) => score.score > best.score ? score : best);
-  const compounds = content.ontology.compounds.map(compound => ({ id: compound.id, score: percentage(mean(compound.capacities.map(id => capacityScores[id]))) }));
-  return { version: content.ontology.version, assessedAt: new Date().toISOString(), capacities, compounds, context: contexts,
-    goals: answers.goals, targets, personaId: selectPersona(capacityScores, contextScores), profileId: selectProfile(capacityScores), strongest, opportunities };
+  const compounds = compoundProfile(content, capacityScores);
+  const compoundTargets = compoundProfile(content, targetScores);
+  return { assessedAt: new Date().toISOString(), capacities, compounds, context: contexts,
+    goals: answers.goals, targets, compoundTargets, personaId: selectPersona(capacityScores, contextScores), profileId: selectProfile(capacityScores), strongest, opportunities };
 };

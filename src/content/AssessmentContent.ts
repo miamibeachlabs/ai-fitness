@@ -1,18 +1,41 @@
 export type Identifier = string;
 export type Evidence = Readonly<Record<Identifier, number>>;
 export type NamedConcept = Readonly<{ id: Identifier; name: string; description: string }>;
-export type Sport = Readonly<{ id: Identifier; name: string; targets: Evidence }>;
+export type GoalDomain = Readonly<{ id: Identifier; name: string; targets: Evidence }>;
 export type Answer = Readonly<{ text: string; capacity?: Evidence; context?: Evidence }>;
 export type Question = Readonly<{ id: Identifier; category: string; prompt: string; answers: readonly Answer[] }>;
 export type Profile = Readonly<{ name: string; description: string }>;
+export type ResultsCopy = Readonly<{
+  heading: string;
+  trainingRead: string;
+  strongest: string;
+  opportunity: string;
+  capacityChart: string;
+  compoundChart: string;
+  prioritiesHeading: string;
+  prioritiesPrompt: string;
+  generalFitness: string;
+  lowestCapacity: string;
+  goalAdjustedGaps: string;
+  primaryPriorities: string;
+  trainingDirection: string;
+  capacityDirection: string;
+  domainDirection: string;
+  copy: string;
+  copyData: string;
+  copied: string;
+  dataCopied: string;
+  none: string;
+  notSpecified: string;
+  targetsMet: string;
+}>;
 
 export type AssessmentContent = Readonly<{
   ontology: Readonly<{
-    version: string;
     capacities: readonly NamedConcept[];
     contexts: readonly NamedConcept[];
     compounds: readonly (NamedConcept & { capacities: readonly Identifier[] })[];
-    sports: readonly Sport[];
+    domains: readonly GoalDomain[];
   }>;
   questions: readonly Question[];
   profiles: Readonly<{
@@ -22,7 +45,7 @@ export type AssessmentContent = Readonly<{
   interface: Readonly<{
     app: Readonly<{ assessmentLabel: string; introduction: string; privacy: string; principles: readonly string[] }>;
     goals: Readonly<{ category: string; prompt: string; hint: string; levels: readonly string[] }>;
-    results: Readonly<Record<string, string>>;
+    results: ResultsCopy;
   }>;
 }>;
 
@@ -46,11 +69,11 @@ export const validateContent = (value: unknown): AssessmentContent => {
       validateEvidence(question.id, answer.context, contextIds);
     }
 
-  for (const sport of content.ontology.sports)
-    for (const [id, level] of Object.entries(sport.targets)) {
-      if (!capacityIds.has(id)) throw new Error(`Sport ${sport.id} targets unknown capacity ${id}.`);
+  for (const domain of content.ontology.domains)
+    for (const [id, level] of Object.entries(domain.targets)) {
+      if (!capacityIds.has(id)) throw new Error(`Goal domain ${domain.id} targets unknown capacity ${id}.`);
       if (!Number.isInteger(level) || level < 1 || level > 4)
-        throw new Error(`Sport ${sport.id} gives ${id} target ${level}; target levels must be integers from 1 to 4.`);
+        throw new Error(`Goal domain ${domain.id} gives ${id} target ${level}; target levels must be integers from 1 to 4.`);
     }
 
   return content as AssessmentContent;

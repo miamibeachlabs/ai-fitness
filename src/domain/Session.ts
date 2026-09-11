@@ -13,7 +13,7 @@ export const newSession = (content: AssessmentContent): Session => ({
   screen: 'intro',
   step: 0,
   answers: {
-    goals: Object.fromEntries(content.ontology.sports.map(({ id }) => [id, 0])),
+    goals: Object.fromEntries(content.ontology.domains.map(({ id }) => [id, 0])),
     questions: {},
   },
 });

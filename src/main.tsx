@@ -17,7 +17,17 @@ if (showingLab) {
   render(<App content={content}/>, root);
 }
 
-if ('serviceWorker' in navigator)
+if ('serviceWorker' in navigator && developingLocally)
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.getRegistrations()
+      .then(registrations => Promise.all(registrations.map(registration => registration.unregister())))
+      .then(() => caches.keys())
+      .then(names => Promise.all(names
+        .filter(name => name.startsWith('ai-fitness-assessment-'))
+        .map(name => caches.delete(name))))
+      .catch(error => console.error('Could not clear local preview caches.', error));
+  });
+else if ('serviceWorker' in navigator)
   window.addEventListener('load', () => {
     void navigator.serviceWorker.register('./service-worker.js')
       .catch(error => console.error('Offline installation failed.', error));

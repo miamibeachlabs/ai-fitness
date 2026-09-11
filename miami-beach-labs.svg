@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title">
+  <title id="title">Miami Beach Labs</title>
+  <defs>
+    <linearGradient id="mbl-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2ab5b5"/>
+      <stop offset="100%" stop-color="#4ecece"/>
+    </linearGradient>
+    <style>
+      .name { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 42px; fill: #173f46; }
+      .sub { font-family: "SFMono-Regular", Consolas, monospace; font-weight: 500; font-size: 9px; fill: #087d78; letter-spacing: 2.5px; }
+    </style>
+  </defs>
+  <g transform="translate(22,12)">
+    <path d="M48 6 20 55h56L48 6Zm0 0v28M20 55l28-21 28 21" fill="none" stroke="#087d78" stroke-width="1.2" opacity=".42"/>
+    <circle cx="48" cy="6" r="5" fill="url(#mbl-gradient)"/>
+    <circle cx="20" cy="55" r="5" fill="url(#mbl-gradient)"/>
+    <circle cx="76" cy="55" r="5" fill="url(#mbl-gradient)"/>
+    <circle cx="48" cy="34" r="7.5" fill="url(#mbl-gradient)"/>
+    <circle cx="48" cy="34" r="3.2" fill="#fffdf8" opacity=".92"/>
+  </g>
+  <path d="M136 22v76" stroke="#173f46" opacity=".16"/>
+  <text class="name" x="156" y="76">Miami Beach Labs</text>
+  <text class="sub" x="158" y="95">SOFTWARE + AI</text>
+</svg>

@@ -5,7 +5,7 @@ Bun, TypeScript, and Preact and deploys as static files through Cloudflare
 Workers Static Assets.
 
 The app measures eight general capacities, interprets them relative to the
-person's chosen AI sports, and produces a copyable profile for use in a
+person's chosen goal domains, and produces a copyable profile for use in a
 personal training session.
 
 ## Run locally
@@ -16,7 +16,7 @@ bun run dev
 
 The assessment itself is edited as four readable documents:
 
-- `content/ontology.yaml` — capacities, compounds, contexts, sports, and targets
+- `content/ontology.yaml` — capacities, compounds, contexts, goal domains, and targets
 - `content/questions.yaml` — every question, answer, and evidence contribution
 - `content/profiles.yaml` — persona and general-profile language
 - `content/interface.yaml` — client-interface language
