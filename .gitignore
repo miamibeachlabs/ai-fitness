@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Generated application output
+dist/
+src/generated/content.ts
+
+# Local development state
+.sites-runtime/
+.DS_Store
+*.log
+
+# Private environment values
+.env
+.env.*
+!.env.example

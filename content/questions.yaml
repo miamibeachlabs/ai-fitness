@@ -1,0 +1,142 @@
+- id: frequency
+  category: Activity
+  prompt: During a normal day, how often does AI become part of what you are doing?
+  answers:
+    - text: Rarely or never
+      context: { activity: 1 }
+    - text: Once in a while, when an obvious use comes up
+      context: { activity: 2 }
+    - text: Several times during a typical day
+      context: { activity: 3 }
+    - text: It is a normal part of how I think and work
+      context: { activity: 4 }
+
+- id: recovery
+  category: Fluency
+  prompt: AI gives you a weak first result. What usually happens next?
+  answers:
+    - text: I give up on it and do it myself
+      capacity: { fluency: 1 }
+    - text: I try asking the same thing a different way
+      capacity: { fluency: 2 }
+    - text: I give it clearer instructions or examples
+      capacity: { fluency: 3 }
+    - text: I keep giving it specific feedback until we get there
+      capacity: { fluency: 4 }
+
+- id: output
+  category: Strength
+  prompt: How much useful work can you reliably get done with AI?
+  answers:
+    - text: Quick answers, ideas, or short messages
+      capacity: { strength: 1 }
+    - text: Finished documents, plans, images, or analyses
+      capacity: { strength: 2 }
+    - text: Bigger things like presentations, spreadsheets, research, workflows, or small apps
+      capacity: { strength: 3 }
+    - text: Serious projects like working apps, deep research, or automated workflows
+      capacity: { strength: 4 }
+
+- id: depth
+  category: Endurance
+  prompt: How long can you keep working productively with AI on the same problem?
+  answers:
+    - text: Usually one request and I am done
+      capacity: { endurance: 1 }
+    - text: A short back-and-forth
+      capacity: { endurance: 2 }
+    - text: A long session with lots of revisions and decisions
+      capacity: { endurance: 3 }
+    - text: Hours or days without losing track of what we are doing
+      capacity: { endurance: 4 }
+
+- id: range
+  category: Range
+  prompt: How many different kinds of problems can you use AI for?
+  answers:
+    - text: Mostly one familiar kind of thing
+      capacity: { range: 1 }
+    - text: A few related kinds of problems
+      capacity: { range: 2 }
+    - text: Several very different kinds of work
+      capacity: { range: 3 }
+    - text: Almost anything I run into, even if it is new to me
+      capacity: { range: 4 }
+
+- id: delegation
+  category: Agency
+  prompt: When you want something finished, how much of the work can you hand over to AI?
+  answers:
+    - text: AI tells me what to do, and I do the work
+      capacity: { agency: 1 }
+    - text: AI does parts of the work for me
+      capacity: { agency: 2 }
+    - text: I tell AI what I want finished and work with it until it is done
+      capacity: { agency: 3 }
+    - text: I can give AI the job and mostly supervise
+      capacity: { agency: 4 }
+
+- id: context
+  category: Integration
+  prompt: How much of your real work or life can AI work with directly?
+  answers:
+    - text: Mostly whatever I type into the current chat
+      capacity: { integration: 1 }
+    - text: I give it details or files when I need to
+      capacity: { integration: 2 }
+    - text: It regularly works with my real files, projects, information, or apps
+      capacity: { integration: 3 }
+    - text: It is built into how I work, without starting from scratch every time
+      capacity: { integration: 4 }
+
+- id: verification
+  category: Judgment
+  prompt: When an AI result matters, how do you decide whether to trust it?
+  answers:
+    - text: If it sounds convincing, I usually go with it
+      capacity: { judgment: 1 }
+    - text: I read it over and check anything that looks suspicious
+      capacity: { judgment: 2 }
+    - text: I check the important claims and sources
+      capacity: { judgment: 3 }
+    - text: I verify the important parts myself before I rely on them
+      capacity: { judgment: 4 }
+
+- id: risk
+  category: Form
+  prompt: When an AI mistake could cause a real problem, how do you usually work?
+  answers:
+    - text: I let AI loose and deal with the damage if something goes wrong
+      context: { form: 1 }
+    - text: I ask it to be careful and check the result afterward
+      context: { form: 2 }
+    - text: I check important steps and make sure I can undo mistakes
+      context: { form: 3 }
+    - text: I limit what AI can change and approve anything important myself
+      context: { form: 4 }
+
+- id: opportunity
+  category: AI Sense
+  prompt: When something new comes up, how often do you notice a way AI could help?
+  answers:
+    - text: I usually do not think of using AI
+      capacity: { sense: 1 }
+    - text: Sometimes it occurs to me that AI might help
+      capacity: { sense: 2 }
+    - text: I often see ways AI could make things easier or better
+      capacity: { sense: 3 }
+    - text: I keep spotting new things and thinking, "AI could probably do that"
+      capacity: { sense: 4 }
+
+- id: progression
+  category: Progression
+  prompt: Compared with three months ago, how is your use of AI changing?
+  answers:
+    - text: It is about the same, or I use it less
+      context: { progression: 1 }
+    - text: I use AI more, but mostly for the same things
+      context: { progression: 2 }
+    - text: I am taking on harder problems and finding new uses
+      context: { progression: 3 }
+    - text: I regularly try things with AI that I could not do before
+      context: { progression: 4 }

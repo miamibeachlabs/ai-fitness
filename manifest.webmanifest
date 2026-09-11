@@ -1,0 +1,10 @@
+{
+  "name": "AI Fitness Assessment",
+  "short_name": "AI Fitness",
+  "description": "A behavioral assessment of how you work with AI.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#04131e",
+  "theme_color": "#071d2d",
+  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

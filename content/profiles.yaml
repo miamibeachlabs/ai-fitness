@@ -1,0 +1,45 @@
+personas:
+  walker:
+    name: The Walker
+    description: You have a useful baseline, but most of your capacity is still untrained.
+  powerlifter:
+    name: The Powerlifter
+    description: You produce serious outcomes in a narrow arena. Your asymmetry may be a feature.
+  sprinter:
+    name: The Sprinter
+    description: You rapidly turn possibilities into useful experiments.
+  recklessPowerlifter:
+    name: The Reckless Powerlifter
+    description: You move heavy AI weight, but your supervision has not caught up.
+  dependentAthlete:
+    name: The Dependent Athlete
+    description: AI does a lot for you; resilience when it fails is the missing capacity.
+  aiYogi:
+    name: The AI Yogi
+    description: You move comfortably across many uses, with room to convert breadth into heavier outcomes.
+  crossTrainer:
+    name: The Cross-Trainer
+    description: You have broad general preparedness with no obvious weak link.
+  plateauedRegular:
+    name: The Plateaued Regular
+    description: You are active, but familiar routines may be hiding the next level.
+  developingGeneralist:
+    name: The Developing Generalist
+    description: You have a real base and a few high-value capacities ready to train.
+
+generalProfiles:
+  elite:
+    name: Advanced generalist
+    description: You are strong across the full range of general AI capacities, with no major weakness holding you back.
+  balanced:
+    name: Balanced generalist
+    description: Your capacities are broadly developed and fairly even, giving you a dependable base across many kinds of work.
+  specialized:
+    name: Intentionally specialized—or ready for cross-training
+    description: You have standout strengths alongside clear gaps; that may fit your goals or point to useful cross-training.
+  developing:
+    name: Developing generalist
+    description: You have a real working base, with several capacities that can now be strengthened through practice.
+  foundation:
+    name: Building a foundation
+    description: You are establishing the basic habits and skills that make more ambitious AI work possible.

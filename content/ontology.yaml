@@ -1,0 +1,87 @@
+version: "0.4"
+
+capacities:
+  - id: fluency
+    name: Fluency
+    description: Communicate and iterate naturally.
+  - id: strength
+    name: Strength
+    description: Produce substantial useful work.
+  - id: range
+    name: Range
+    description: Work across different kinds of problems.
+  - id: endurance
+    name: Endurance
+    description: Sustain deep, multi-step work.
+  - id: agency
+    name: Agency
+    description: Delegate outcomes, not just ask questions.
+  - id: integration
+    name: Integration
+    description: Bring AI into real workflows.
+  - id: judgment
+    name: Judgment
+    description: Supervise, verify, and manage risk.
+  - id: sense
+    name: AI Sense
+    description: Notice where AI could create leverage.
+
+contexts:
+  - id: activity
+    name: Activity
+    description: How routinely AI participates in your life.
+  - id: progression
+    name: Progression
+    description: Whether your use is becoming more capable over time.
+  - id: form
+    name: Form
+    description: How safely and effectively you work.
+  - id: equipment
+    name: Equipment
+    description: The useful tools you can actually operate.
+
+compounds:
+  - id: power
+    name: Power
+    description: Turn possibility into useful output quickly.
+    capacities: [strength, fluency, sense, agency]
+  - id: leverage
+    name: Leverage
+    description: Multiply the useful work you can accomplish.
+    capacities: [strength, agency, integration]
+  - id: orchestration
+    name: Orchestration
+    description: Coordinate tools and agents under supervision.
+    capacities: [agency, integration, judgment]
+  - id: adaptability
+    name: Adaptability
+    description: Adjust when the problem or model changes.
+    capacities: [range, fluency, judgment, sense]
+  - id: versatility
+    name: Versatility
+    description: Perform capably across different modes of work.
+    capacities: [range, strength, fluency]
+  - id: independence
+    name: Independence
+    description: Move from intent to outcome without constant assistance.
+    capacities: [agency, judgment, sense]
+
+sports:
+  - id: business
+    name: Business & operations
+    targets: { integration: 3, sense: 3, agency: 3, judgment: 3, strength: 2 }
+  - id: software
+    name: Software & building
+    targets: { strength: 4, endurance: 3, agency: 3, judgment: 3, fluency: 3 }
+  - id: research
+    name: Research & learning
+    targets: { endurance: 3, judgment: 4, fluency: 3, range: 2 }
+  - id: creative
+    name: Creative work
+    targets: { range: 4, fluency: 3, strength: 3, sense: 3 }
+  - id: productivity
+    name: Personal productivity
+    targets: { integration: 4, sense: 3, agency: 2, judgment: 2 }
+  - id: professional
+    name: My profession
+    targets: { integration: 4, strength: 3, judgment: 3, endurance: 2 }

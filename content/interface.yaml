@@ -1,0 +1,26 @@
+app:
+  assessmentLabel: AI fitness screening
+  introduction: "Not how much you know. What you can actually do: create, delegate, sustain, verify, and notice opportunities."
+  privacy: 11 behavioral questions · No login · Works offline
+  principles:
+    - AI fitness comes from doing, not knowing.
+    - Your ideal profile depends on your sport.
+    - The goal is a training direction, not a grade.
+
+goals:
+  category: Your direction
+  prompt: What do you want AI fitness for?
+  hint: Rate every area. This shapes the profile you need—it does not raise your score.
+  levels: [Not relevant, Curious, Useful, Important, Central]
+
+results:
+  heading: Your AI fitness profile
+  coachRead: Coach's read
+  strongest: Strongest asset
+  opportunity: Best opportunity
+  map: Your training map
+  nextSession: Next session
+  trainingHeadline: Train the gap, not the score.
+  trainingBody: A personal session turns those abstractions into exercises drawn from your actual work.
+  copy: Copy AI Fitness Profile
+  copied: Full profile copied
