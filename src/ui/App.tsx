@@ -80,7 +80,7 @@ const Question = ({ content, session, onBack, onAnswer }: QuestionProps) => {
   const question = content.questions[session.step];
   const selected = session.answers.questions[question.id];
   return <QuestionFrame content={content} index={session.step + 1} category={question.category} prompt={question.prompt} onBack={onBack}>
-    <div class="options">{question.answers.map((answer, index) => <button key={answer.text} class={`option ${selected === index ? 'selected' : ''}`} onClick={() => onAnswer(question.id, index)}><span class="choice">{String.fromCharCode(65 + index)}</span><span>{answer.text}</span></button>)}</div>
+    <div class="options" key={question.id}>{question.answers.map((answer, index) => <button key={answer.text} class={`option ${selected === index ? 'selected' : ''}`} onClick={() => onAnswer(question.id, index)}><span class="choice">{String.fromCharCode(65 + index)}</span><span>{answer.text}</span></button>)}</div>
   </QuestionFrame>;
 };
 
@@ -106,7 +106,7 @@ const Results = ({ content, session, onRestart }: ResultsProps) => {
   };
 
   return <section class="results">
-    <div class="result-heading"><div><p class="kicker">{copy.heading}</p><h1>{view.persona}</h1><p class="persona-description">{view.personaDescription}</p><div class="profile-summary"><strong>{view.profile}</strong><span>{view.profileDescription}</span></div></div><button class="text-button" onClick={onRestart}>Retake assessment ↻</button></div>
+    <div class="result-heading"><div><p class="kicker">{copy.heading}</p><h1>{view.persona}</h1><p class="persona-description">{view.personaDescription}</p><div class="profile-summary"><strong>{view.profile}</strong><span>{view.profileDescription}</span></div></div><button class="retake-button" onClick={onRestart}>Retake assessment <span aria-hidden="true">↻</span></button></div>
     <div class="chart-comparison">
       <article class="chart-card"><div class="chart-head"><span>{copy.capacityChart}</span><span class="legend"><i/>You <i/>Goal</span></div><div dangerouslySetInnerHTML={{ __html: radar(content.ontology.capacities, result.capacities, result.targets, copy.capacityChart) }}/><div class="chart-definitions">{result.capacities.map(({ id, score }) => <div key={id}><p><strong>{capacities[id].name}</strong><span>{score}</span></p><small>{capacities[id].description}</small></div>)}</div></article>
       <article class="chart-card"><div class="chart-head"><span>{copy.compoundChart}</span><span class="legend"><i/>You <i/>Goal</span></div><div dangerouslySetInnerHTML={{ __html: radar(content.ontology.compounds, result.compounds, result.compoundTargets, copy.compoundChart) }}/><div class="chart-definitions compound-definitions">{result.compounds.map(({ id, score }) => <div key={id}><p><strong>{compounds[id].name}</strong><span>{score}</span></p><small>{compounds[id].description}</small></div>)}</div></article>

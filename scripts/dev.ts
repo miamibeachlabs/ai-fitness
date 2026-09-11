@@ -2,9 +2,13 @@ import { build } from './build.ts';
 
 await build();
 const root = new URL('../dist/', import.meta.url);
+const port = Number(Bun.env.PORT ?? 3000);
+
+if (!Number.isInteger(port) || port < 1 || port > 65_535)
+  throw new Error(`Invalid PORT: ${Bun.env.PORT}`);
 
 const server = Bun.serve({
-  port: 3000,
+  port,
   async fetch(request) {
     const url = new URL(request.url);
     const path = url.pathname === '/' ? 'index.html' : url.pathname.slice(1);
