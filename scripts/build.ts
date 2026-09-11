@@ -33,17 +33,15 @@ const build = async (): Promise<void> => {
   });
   if (!result.success) throw new AggregateError(result.logs, 'Build failed');
 
-  for (const path of ['manifest.webmanifest', 'icon.svg'])
+  for (const path of ['manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png'])
     await Bun.write(`dist/${path}`, Bun.file(path));
 
   const files = await Array.fromAsync(new Bun.Glob('dist/**/*').scan());
   const fingerprint = new Bun.CryptoHasher('sha256');
   for (const path of files.sort()) fingerprint.update(await Bun.file(path).arrayBuffer());
   const version = fingerprint.digest('hex').slice(0, 12);
-  const assets = files.map(path => `./${path.replace(/^dist\//, '')}`);
   const worker = (await Bun.file('service-worker.js').text())
-    .replace('__BUILD__', version)
-    .replace('__ASSETS__', JSON.stringify(['./', ...assets]));
+    .replace('__BUILD__', version);
   await Bun.write('dist/service-worker.js', worker);
 
   console.log(`Built AI Fitness ${content.ontology.version} from YAML (${version}).`);

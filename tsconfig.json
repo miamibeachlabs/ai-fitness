@@ -8,6 +8,8 @@
     "moduleResolution": "bundler",
     "types": ["bun"],
     "isolatedModules": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "allowImportingTsExtensions": true,
     "skipLibCheck": true
   },

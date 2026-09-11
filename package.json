@@ -8,6 +8,7 @@
     "check": "bunx --bun tsc --noEmit"
   },
   "dependencies": {
+    "preact": "10.29.8",
     "yaml": "2.9.0"
   },
   "devDependencies": {

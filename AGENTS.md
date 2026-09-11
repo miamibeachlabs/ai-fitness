@@ -1,4 +1,4 @@
-# AGENTS.md
+# AI Fitness Assessment
 
 ## Never use Node
 
@@ -19,3 +19,12 @@ client interface.
 
 Prefer explicit data flow, small pure functions, few concepts, and no machinery
 that does not make the program easier for a human reader to understand.
+
+This app follows `/Users/fg/dev/own/templates/miami-beach-pwa`: Bun, TypeScript,
+Preact, Cloudflare Workers Static Assets, and the Miami Beach visual palette.
+Do not introduce OpenAI Sites plumbing, `.openai/hosting.json`, Vinext, Shadcn,
+Vite, Tailwind, or a server runtime.
+
+Preserve the offline contract in `README.md`. Keep the service-worker cache
+prefix unique to AI Fitness, and preserve stored assessment progress through
+explicit schema migrations.

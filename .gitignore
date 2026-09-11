@@ -6,7 +6,6 @@ dist/
 src/generated/content.ts
 
 # Local development state
-.sites-runtime/
 .DS_Store
 *.log
 

@@ -1,33 +1,57 @@
-const CACHE = "ai-fitness-__BUILD__";
-const ASSETS = __ASSETS__;
-self.addEventListener("install", (event) => {
+const cachePrefix = 'ai-fitness-assessment-';
+const cacheName = `${cachePrefix}__BUILD__`;
+const appShell = [
+  './',
+  './manifest.webmanifest',
+  './icon.svg',
+  './icon-192.png',
+  './icon-512.png',
+];
+
+const localReferences = html =>
+  [...html.matchAll(/(?:href|src)="([^"#]+)"/g)]
+    .map(match => match[1])
+    .filter(path => new URL(path, self.location).origin === self.location.origin);
+
+const downloadApp = async () => {
+  const page = await fetch('./');
+  if (!page.ok) throw new Error(`Could not download app: ${page.status}`);
+
+  const html = await page.text();
+  const cache = await caches.open(cacheName);
+  await cache.put('./', new Response(html, {
+    headers: page.headers,
+    status: page.status,
+    statusText: page.statusText,
+  }));
+  await cache.addAll([...new Set([
+    ...appShell.slice(1),
+    ...localReferences(html),
+  ])]);
+};
+
+self.addEventListener('install', event => {
+  event.waitUntil(downloadApp());
+});
+
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.addAll(ASSETS))
-      .then(() => self.skipWaiting()),
+    caches.keys()
+      .then(names => Promise.all(names
+        .filter(name => name.startsWith(cachePrefix) && name !== cacheName)
+        .map(name => caches.delete(name))))
+      .then(() => self.clients.claim()),
   );
 });
-self.addEventListener(
-  "activate",
-  (event) =>
-    event.waitUntil(
-      caches.keys()
-        .then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))))
-        .then(() => self.clients.claim()),
-    ),
-);
-self.addEventListener(
-  "fetch",
-  (event) => {
-    if (event.request.mode === "navigate") {
-      event.respondWith(
-        fetch(event.request).catch(() => caches.match("./index.html")),
-      );
-      return;
-    }
 
-    event.respondWith(
-      caches.match(event.request).then((cached) => cached || fetch(event.request)),
-    );
-  },
-);
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  const sameOrigin = new URL(request.url).origin === self.location.origin;
+  if (request.method !== 'GET' || !sameOrigin) return;
+
+  event.respondWith((async () =>
+    await caches.match(request)
+    ?? (request.mode === 'navigate' ? await caches.match('./') : undefined)
+    ?? fetch(request)
+  )());
+});

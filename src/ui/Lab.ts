@@ -30,7 +30,7 @@ export const renderLab = (root: HTMLElement, content: AssessmentContent): void =
       <div><p class="kicker">Local development view</p><h1>Assessment Lab</h1><p>The complete instrument on one page: language, ontology, evidence, and result vocabulary.</p></div>
       <a class="lab-exit" href="/">View client assessment →</a>
     </header>
-    <nav class="lab-nav"><a href="#ontology">Ontology</a><a href="#goals">Goals</a><a href="#questions">Questions</a><a href="#coverage">Coverage</a><a href="#profiles">Profiles</a></nav>
+    <nav class="lab-nav"><a href="?lab#ontology">Ontology</a><a href="?lab#goals">Goals</a><a href="?lab#questions">Questions</a><a href="?lab#coverage">Coverage</a><a href="?lab#profiles">Profiles</a></nav>
 
     <section id="ontology" class="lab-section">
       ${sectionTitle('01', 'Ontology', 'Primitive capacities are coordinates. Compounds and personas are recognizable patterns over them.')}
