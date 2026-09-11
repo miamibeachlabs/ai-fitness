@@ -23,7 +23,7 @@ const Frame = ({ children }: Readonly<{ children: ComponentChildren }>) => (
       <a class="brand" href="#" aria-label="AI Fitness home">
         <span class="brand-mark" aria-hidden="true">AF</span><span>AI Fitness</span>
       </a>
-      <div class="brandbar-right"><span class="session-tag">2 minute assessment</span><span class="byline">by <img src="./miami-beach-labs.svg" alt="Miami Beach Labs"/></span></div>
+      <div class="brandbar-right"><span class="session-tag">2 minute assessment</span><span class="byline"><span>by</span><span class="mbl-brand"><img src="./mbl-mark.svg" alt=""/><span><strong>Miami Beach Labs</strong><small>Software + AI</small></span></span></span></div>
     </header>
     {children}
     <footer><span>AI Fitness Assessment</span><span>Private by design. Your answers stay on this device.</span></footer>

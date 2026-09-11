@@ -33,7 +33,7 @@ const build = async (): Promise<void> => {
   });
   if (!result.success) throw new AggregateError(result.logs, 'Build failed');
 
-  for (const path of ['manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'miami-beach-labs.svg'])
+  for (const path of ['manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'mbl-mark.svg'])
     await Bun.write(`dist/${path}`, Bun.file(path));
 
   const files = await Array.fromAsync(new Bun.Glob('dist/**/*').scan());

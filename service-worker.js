@@ -7,7 +7,7 @@ const appShell = [
   './icon.svg',
   './icon-192.png',
   './icon-512.png',
-  './miami-beach-labs.svg',
+  './mbl-mark.svg',
 ];
 
 const localReferences = html =>
