@@ -1,31 +1,61 @@
 personas:
+  couchPotato:
+    name: The AI Couch Potato
+    description: Knows AI exists but rarely uses it. There is little activity and no deliberate training yet.
   walker:
     name: The Walker
-    description: You have a useful baseline, but most of your capacity is still untrained.
-  powerlifter:
-    name: The Powerlifter
-    description: You produce serious outcomes in a narrow arena. Your asymmetry may be a feature.
-  sprinter:
-    name: The Sprinter
-    description: You rapidly turn possibilities into useful experiments.
-  recklessPowerlifter:
-    name: The Reckless Powerlifter
-    description: You move heavy AI weight, but your supervision has not caught up.
-  dependentAthlete:
-    name: The Dependent Athlete
-    description: AI does a lot for you; resilience when it fails is the missing capacity.
-  aiYogi:
-    name: The AI Yogi
-    description: You move comfortably across many uses, with room to convert breadth into heavier outcomes.
-  crossTrainer:
-    name: The Cross-Trainer
-    description: You have broad general preparedness with no obvious weak link.
+    description: Uses AI for everyday questions and simple tasks. There is a useful baseline, but most capacities remain untrained.
+  weekendWarrior:
+    name: The Weekend Warrior
+    description: Produces occasional bursts of impressive AI work followed by long periods without practice or integration.
+  cardioBunny:
+    name: The Cardio Bunny
+    description: Talks to AI constantly, learns and brainstorms extensively, but rarely converts that activity into substantial creation or delegated work.
+  gearCollector:
+    name: The Gear Collector
+    description: Subscribes to every new model and tool but mistakes access to equipment for developed capability.
   plateauedRegular:
     name: The Plateaued Regular
-    description: You are active, but familiar routines may be hiding the next level.
+    description: Uses AI routinely, but familiar movements have stopped expanding what they can do.
+  powerlifter:
+    name: The Powerlifter
+    description: Moves enormous AI workloads inside a specialized domain. Their narrow range may be a rational feature rather than a flaw.
+  broLifter:
+    name: The Bro Lifter
+    description: Has conspicuous strength in one favored AI movement while neglecting the rest of the capability space.
+  recklessPowerlifter:
+    name: The Reckless Powerlifter
+    description: Combines high strength and agency with weak judgment, excessive permissions, and too little verification.
+  dependentAthlete:
+    name: The Dependent Athlete
+    description: Accomplishes a great deal with AI but lacks resilience when the model, tool, or familiar workflow fails.
+  sprinter:
+    name: The Sprinter
+    description: Has an exceptionally short distance between “I wonder if…” and a working experiment or useful result.
+  aiYogi:
+    name: The AI Yogi
+    description: Moves comfortably across many uses and modes, with breadth and fluency that may not yet translate into heavier outcomes.
+  naturalAthlete:
+    name: The Natural Athlete
+    description: Knows little AI terminology but instinctively recognizes opportunities, experiments freely, and learns rapidly through use.
+  crossTrainer:
+    name: The Cross-Trainer
+    description: Has broad general AI preparedness with no obvious weak link and can move among many kinds of work.
+  generalistAthlete:
+    name: The Generalist Athlete
+    description: Maintains a deliberately balanced profile across the major capacities rather than optimizing for one narrow sport.
   developingGeneralist:
     name: The Developing Generalist
-    description: You have a real base and a few high-value capacities ready to train.
+    description: Has a real working base with several capacities ready for deliberate training and integration.
+  specialist:
+    name: The Specialist / Elite Athlete
+    description: Is intentionally asymmetric because exceptional performance in a particular profession or objective matters most.
+  agentCommander:
+    name: The Agent Commander
+    description: Coordinates delegated and sometimes parallel AI work while retaining judgment and control over the larger objective.
+  cyborgProfessional:
+    name: The Cyborg Professional
+    description: Has integrated AI deeply into a profession until human skill, context, tools, and AI operate as one working system.
 
 generalProfiles:
   elite:

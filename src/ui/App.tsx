@@ -94,6 +94,8 @@ const Results = ({ content, session, onRestart }: ResultsProps) => {
   const compounds = Object.fromEntries(content.ontology.compounds.map(item => [item.id, item]));
   const opportunity = result.opportunities[0];
   const copy = content.interface.results;
+  const archetypes = view.personaMatches.filter(({ kind }) => kind === 'archetype');
+  const cautions = view.personaMatches.filter(({ kind }) => kind === 'caution');
 
   const copyToClipboard = async (text: string, success: string) => {
     try {
@@ -106,7 +108,11 @@ const Results = ({ content, session, onRestart }: ResultsProps) => {
   };
 
   return <section class="results">
-    <div class="result-heading"><div><p class="kicker">{copy.heading}</p><h1>{view.persona}</h1><p class="persona-description">{view.personaDescription}</p><div class="profile-summary"><strong>{view.profile}</strong><span>{view.profileDescription}</span></div></div><button class="retake-button" onClick={onRestart}>Retake assessment <span aria-hidden="true">↻</span></button></div>
+    <div class="result-heading"><div><p class="kicker">{copy.heading}</p><h1>{view.profile}</h1><p class="profile-description">{view.profileDescription}</p></div><button class="retake-button" onClick={onRestart}>Retake assessment <span aria-hidden="true">↻</span></button></div>
+    {(archetypes.length > 0 || cautions.length > 0) && <section class="persona-patterns">
+      {archetypes.length > 0 && <div class="persona-group"><p class="kicker">{copy.patternsHeading}</p><div class="persona-grid">{archetypes.map(persona => <article class="persona-card" key={persona.id}><div><h2>{persona.name}</h2><span>{persona.resemblance}% {copy.resemblance}</span></div><p>{persona.description}</p></article>)}</div></div>}
+      {cautions.length > 0 && <div class="persona-group caution-group"><p class="kicker">{copy.cautionsHeading}</p><div class="persona-grid">{cautions.map(persona => <article class="persona-card caution" key={persona.id}><div><h2>{persona.name}</h2><span>{persona.resemblance}% {copy.resemblance}</span></div><p>{persona.description}</p></article>)}</div></div>}
+    </section>}
     <div class="chart-comparison">
       <article class="chart-card"><div class="chart-head"><span>{copy.capacityChart}</span><span class="legend"><i/>You <i/>Goal</span></div><div dangerouslySetInnerHTML={{ __html: radar(content.ontology.capacities, result.capacities, result.targets, copy.capacityChart) }}/><div class="chart-definitions">{result.capacities.map(({ id, score }) => <div key={id}><p><strong>{capacities[id].name}</strong><span>{score}</span></p><small>{capacities[id].description}</small></div>)}</div></article>
       <article class="chart-card"><div class="chart-head"><span>{copy.compoundChart}</span><span class="legend"><i/>You <i/>Goal</span></div><div dangerouslySetInnerHTML={{ __html: radar(content.ontology.compounds, result.compounds, result.compoundTargets, copy.compoundChart) }}/><div class="chart-definitions compound-definitions">{result.compounds.map(({ id, score }) => <div key={id}><p><strong>{compounds[id].name}</strong><span>{score}</span></p><small>{compounds[id].description}</small></div>)}</div></article>

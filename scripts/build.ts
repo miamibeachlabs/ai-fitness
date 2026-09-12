@@ -2,6 +2,7 @@ import { parse } from 'yaml';
 import { validateContent } from '../src/content/AssessmentContent.ts';
 import interfaceYaml from '../content/interface.yaml';
 import ontologyYaml from '../content/ontology.yaml';
+import personaModelYaml from '../content/persona-model.yaml';
 import profilesYaml from '../content/profiles.yaml';
 import questionsYaml from '../content/questions.yaml';
 
@@ -13,6 +14,7 @@ const build = async (): Promise<void> => {
     ontology: await readYaml(ontologyYaml),
     questions: await readYaml(questionsYaml),
     profiles: await readYaml(profilesYaml),
+    personaModel: await readYaml(personaModelYaml),
     interface: await readYaml(interfaceYaml),
   });
 

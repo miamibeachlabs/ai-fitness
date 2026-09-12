@@ -8,12 +8,12 @@
 @media(max-width:560px){.lab-header{display:block;padding-top:45px}.lab-exit{display:inline-block;margin-top:22px}.ontology-grid,.compound-grid,.context-row,.coverage-grid{grid-template-columns:1fr}.lab-question{grid-template-columns:42px 1fr}.q-body{padding:17px 14px}.sandbox label{grid-template-columns:1fr}.rules-grid article>div{grid-template-columns:20px 1fr}.rules-grid span{grid-column:2}#lab-result{grid-template-columns:1fr}#lab-result .wide{grid-column:auto}}
 .goal-sliders{display:grid;gap:12px}.goal-slider{display:grid;grid-template-columns:minmax(170px,1fr) 2fr 80px;gap:18px;align-items:center;background:rgba(11,43,61,.55);border:1px solid var(--line);padding:15px 17px}.goal-slider label{font-weight:700}.goal-slider input{width:100%;accent-color:var(--aqua)}.goal-slider output{color:var(--aqua);font:500 .7rem var(--mono);text-align:right}.scale-legend{display:flex;justify-content:space-between;color:var(--muted);font:.68rem var(--mono);margin:8px 98px 0 calc(33% + 18px)}
 @media(max-width:600px){.goal-slider{grid-template-columns:1fr 70px}.goal-slider input{grid-column:1/-1;grid-row:2}.scale-legend{margin:8px 0 0}}
-.persona-description{max-width:650px;color:#c4d6dc;font-size:1.05rem;line-height:1.5}.profile-summary{display:flex;flex-direction:column;gap:4px;margin-top:20px;padding-left:15px;border-left:2px solid var(--coral)}.profile-summary strong{font-size:.95rem}.profile-summary span{color:var(--muted);font-size:.82rem;line-height:1.45}
+.profile-description{max-width:650px;color:var(--ink);font-size:1.05rem;line-height:1.5}
 .training-read{display:grid;gap:0;margin:24px 0 42px}.training-read div{display:grid;grid-template-columns:minmax(130px,.8fr) 1.2fr;gap:18px;padding:12px 0;border-top:1px solid var(--line)}.training-read dt{color:var(--muted);font-size:.78rem}.training-read dd{margin:0;font-weight:700}.training-read dd span{color:var(--aqua);font:400 .72rem var(--mono);margin-left:5px}.priority-list{display:grid;gap:8px}.priority-list div{display:flex;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding-top:8px}.priority-list span{color:var(--aqua);font:500 .72rem var(--mono)}.copy-actions{display:flex;flex:0 0 auto;align-items:center;flex-direction:column;gap:18px}.copy-actions .primary{margin-top:0}
 
 /* Miami Beach application surfaces */
 body{background:radial-gradient(circle at 82% 18%,rgba(169,221,208,.46),transparent 34%),var(--sand)}
-.lede,.persona-description{color:var(--ink)}
+.lede,.profile-description{color:var(--ink)}
 .principle-strip p,.training p:last-child{color:var(--muted)}
 .option,.sport-slider,.chart-card,.diagnosis-card,.capacities,.training,.lab-question{background:rgba(255,253,248,.92)}
 .option:hover,.option.selected{background:var(--seafoam)}
@@ -46,3 +46,7 @@ body{background:radial-gradient(circle at 82% 18%,rgba(169,221,208,.46),transpar
 
 .retake-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 15px;color:var(--ocean);background:var(--surface);border:1px solid var(--turquoise);font-weight:700;cursor:pointer;box-shadow:3px 3px 0 var(--seafoam)}.retake-button:hover{background:var(--seafoam)}
 @media(max-width:480px){.retake-button{width:100%;margin-top:24px}}
+
+.persona-patterns{display:grid;gap:26px;margin-bottom:18px}.persona-group{display:grid;gap:10px}.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.persona-card{border:1px solid var(--line);background:var(--surface);padding:22px}.persona-card>div{display:flex;justify-content:space-between;align-items:start;gap:18px}.persona-card h2{font-size:1.15rem;line-height:1.15;margin:0}.persona-card span{flex:0 0 auto;color:var(--turquoise);font:600 .66rem var(--mono);text-transform:uppercase}.persona-card p{color:var(--muted);font-size:.84rem;line-height:1.55;margin:14px 0 0}.caution-group{border-left:3px solid var(--coral);padding-left:14px}.persona-card.caution span{color:var(--coral)}
+@media(max-width:900px){.persona-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.persona-grid{grid-template-columns:1fr}.persona-card{padding:18px}}

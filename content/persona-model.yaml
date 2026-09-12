@@ -1,0 +1,96 @@
+maxArchetypes: 3
+
+patterns:
+  - persona: couchPotato
+    kind: archetype
+    threshold: 85
+    traits:
+      - { source: context, measure: activity, direction: low, weight: 4 }
+      - { source: summary, measure: average, direction: low, weight: 4 }
+      - { source: context, measure: progression, direction: low, weight: 2 }
+      - { source: capacity, measure: sense, direction: low, weight: 2 }
+
+  - persona: walker
+    kind: archetype
+    threshold: 70
+    traits:
+      - { source: context, measure: activity, target: 35, weight: 3 }
+      - { source: summary, measure: average, target: 35, weight: 2 }
+      - { source: capacity, measure: strength, target: 35, weight: 1 }
+
+  - persona: cardioBunny
+    kind: archetype
+    threshold: 72
+    traits:
+      - { source: context, measure: activity, direction: high, weight: 2 }
+      - { source: capacity, measure: fluency, direction: high, weight: 2 }
+      - { source: capacity, measure: endurance, direction: high, weight: 1 }
+      - { source: capacity, measure: strength, direction: low, weight: 2 }
+      - { source: capacity, measure: agency, direction: low, weight: 2 }
+
+  - persona: powerlifter
+    kind: archetype
+    threshold: 72
+    traits:
+      - { source: capacity, measure: strength, direction: high, weight: 3 }
+      - { source: capacity, measure: endurance, direction: high, weight: 2 }
+      - { source: capacity, measure: range, direction: low, weight: 3 }
+
+  - persona: sprinter
+    kind: archetype
+    threshold: 72
+    traits:
+      - { source: compound, measure: power, direction: high, weight: 3 }
+      - { source: capacity, measure: sense, direction: high, weight: 3 }
+      - { source: context, measure: progression, direction: high, weight: 2 }
+      - { source: capacity, measure: agency, direction: high, weight: 1 }
+
+  - persona: aiYogi
+    kind: archetype
+    threshold: 72
+    traits:
+      - { source: capacity, measure: range, direction: high, weight: 3 }
+      - { source: capacity, measure: fluency, direction: high, weight: 2 }
+      - { source: capacity, measure: strength, direction: low, weight: 2 }
+
+  - persona: crossTrainer
+    kind: archetype
+    threshold: 72
+    traits:
+      - { source: summary, measure: minimum, direction: high, weight: 3 }
+      - { source: summary, measure: average, direction: high, weight: 2 }
+      - { source: compound, measure: versatility, direction: high, weight: 2 }
+      - { source: compound, measure: adaptability, direction: high, weight: 2 }
+
+  - persona: plateauedRegular
+    kind: archetype
+    threshold: 75
+    traits:
+      - { source: context, measure: activity, direction: high, weight: 3 }
+      - { source: context, measure: progression, direction: low, weight: 4 }
+
+  - persona: cyborgProfessional
+    kind: archetype
+    threshold: 72
+    traits:
+      - { source: capacity, measure: integration, direction: high, weight: 4 }
+      - { source: capacity, measure: strength, direction: high, weight: 2 }
+      - { source: capacity, measure: judgment, direction: high, weight: 1 }
+      - { source: goal, measure: professional, direction: high, weight: 2 }
+
+  - persona: recklessPowerlifter
+    kind: caution
+    threshold: 72
+    traits:
+      - { source: capacity, measure: strength, direction: high, weight: 3 }
+      - { source: capacity, measure: agency, direction: high, weight: 3 }
+      - { source: capacity, measure: judgment, direction: low, weight: 3 }
+      - { source: context, measure: form, direction: low, weight: 2 }
+
+  - persona: dependentAthlete
+    kind: caution
+    threshold: 75
+    traits:
+      - { source: capacity, measure: strength, direction: high, weight: 2 }
+      - { source: capacity, measure: integration, direction: high, weight: 3 }
+      - { source: capacity, measure: fluency, direction: low, weight: 3 }

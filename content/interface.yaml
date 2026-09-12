@@ -15,6 +15,9 @@ goals:
 
 results:
   heading: Your AI fitness profile
+  patternsHeading: Patterns you resemble
+  cautionsHeading: Watch-outs
+  resemblance: resemblance
   trainingRead: Training read
   strongest: Strongest asset
   opportunity: Best opportunity
